@@ -15,14 +15,10 @@ from threading import Thread
 from queue import Queue
 import time
 
-threadCount = 5
-totalData = 128
-totalCustomer = 100
-totalPost = 5
-
 brands = []
 models = []
 
+THREAD_COUNT = 5
 MAX_PAGE = 50
 SEPERATOR = "%2F"
 URL_PREFIX = "https://www.arabam.com/ikinci-el/otomobil/"
@@ -176,7 +172,7 @@ class Main():
 
         # Create threads
         threads = []
-        for i in range(threadCount):
+        for i in range(THREAD_COUNT):
             t = ThreadHandler(workQueue)
             t.daemon = True
             t.start()
